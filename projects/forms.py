@@ -3,5 +3,5 @@ from .models import Project
 
 class ProjectForm(ModelForm):
   class Meta:
-    model = Project
-    fields = '__all__'
+    model = Project # nazwa tabeli z ktorej zrobic formularz
+    fields = '__all__' # ile pol wziac do formularza
