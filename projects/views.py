@@ -23,7 +23,7 @@ def createProject(request):
   form = ProjectForm()
 
   if request.method == 'POST': # jesli wyslalismy POSTA to :
-    form = ProjectForm(request.POST) # przetworzenie formularza
+    form = ProjectForm(request.POST, request.FILES) # przetworzenie formularza
     if form.is_valid():
       form.save() # zapisanie obiektu i mozemy dodac do bazy danych
       return redirect('projects') # po name w views
@@ -38,7 +38,7 @@ def updateProject(request, pk):
   form = ProjectForm(instance=project) # zapisanie go do formularza
 
   if request.method == 'POST': # jesli wyslalismy POSTA to :
-    form = ProjectForm(request.POST, instance=project) # przetworzenie formularza
+    form = ProjectForm(request.POST, request.FILES ,instance=project) # przetworzenie formularza
     if form.is_valid():
       form.save() # zapisanie obiektu i mozemy dodac do bazy danych
       return redirect('projects') # po name w views
